@@ -50,9 +50,6 @@ sed 's/localhost/db/g' config/database.old > config/database.new
 
 sed 's/password:/password: "root"/g' config/database.new > config/database.yml
 
-docker-compose up
-
-
 docker-compose run web rake db:create
 
 
