@@ -56,4 +56,4 @@ docker-compose up
 docker-compose run web rake db:create
 
 
-docker-compose up
+docker-compose up -d
