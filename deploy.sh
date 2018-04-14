@@ -42,15 +42,19 @@ docker-compose run web rails new . --force --database=mysql
 # Build new Docker image
 docker-compose build
 
+# setting permissions
 sudo chown -R root:root . 
 
+# edit this file database.yml
 mv config/database.yml config/database.old
 
 sed 's/localhost/db/g' config/database.old > config/database.new
 
 sed 's/password:/password: "root"/g' config/database.new > config/database.yml
 
+# up stack
+docker-compose up
+# create database
 docker-compose run web rake db:create
-
 
 docker-compose up -d
