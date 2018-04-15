@@ -10,7 +10,7 @@ sudo apt-get install \
     apt-transport-https \
     ca-certificates \
     curl \
-    software-properties-common
+    software-properties-common -y
 
 # Download Key
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -28,7 +28,7 @@ sudo add-apt-repository \
 sudo apt-get update
 
 # Install Docker
-sudo apt-get install docker-ce
+sudo apt-get install docker-ce -y
 
 # Download Package
 sudo curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
@@ -46,7 +46,7 @@ docker-compose build
 sudo chown -R root:root . 
 
 # edit this file database.yml
-mv config/database.yml config/database.old
+udemv config/database.yml config/database.old
 
 sed 's/localhost/db/g' config/database.old > config/database.new
 
@@ -58,3 +58,8 @@ docker-compose up
 docker-compose run web rake db:create
 
 docker-compose up -d
+
+
+
+
+
