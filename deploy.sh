@@ -46,7 +46,7 @@ docker-compose build
 sudo chown -R root:root . 
 
 # edit this file database.yml
-udemv config/database.yml config/database.old
+mv config/database.yml config/database.old
 
 sed 's/localhost/db/g' config/database.old > config/database.new
 
